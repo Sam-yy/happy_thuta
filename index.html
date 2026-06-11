@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Happy Birthday ✨</title>
+
+<link rel="icon" href="cake.png" />
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  min-height:100vh;
+  overflow-x:hidden;
+  font-family:'Poppins',sans-serif;
+  color:white;
+
+  background:
+  radial-gradient(circle at top left,
+  rgba(168,85,247,0.35),
+  transparent 30%),
+
+  radial-gradient(circle at top right,
+  rgba(236,72,153,0.30),
+  transparent 30%),
+
+  radial-gradient(circle at bottom,
+  rgba(59,130,246,0.25),
+  transparent 35%),
+
+  linear-gradient(
+    135deg,
+    #050816,
+    #0f172a,
+    #1e1b4b,
+    #312e81
+  );
+
+  background-attachment:fixed;
+
+  animation:bgMove 12s ease infinite;
+}body::before{
+  content:'';
+
+  position:fixed;
+  inset:0;
+
+  background:
+  radial-gradient(
+    circle at 20% 20%,
+    rgba(255,255,255,0.08),
+    transparent 20%
+  ),
+
+  radial-gradient(
+    circle at 80% 30%,
+    rgba(255,192,203,0.08),
+    transparent 25%
+  ),
+
+  radial-gradient(
+    circle at 50% 80%,
+    rgba(168,85,247,0.08),
+    transparent 25%
+  );
+
+  pointer-events:none;
+
+  z-index:-1;
+
+  filter:blur(20px);
+}
+@keyframes bgMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* Loading Screen */
+#loader{
+  position:fixed;
+  inset:0;
+  background:#0f172a;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+  flex-direction:column;
+  transition:1s;
+}
+
+#loader h2{
+  font-family:'Great Vibes',cursive;
+  font-size:3rem;
+  color:#ffd6e7;
+  animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+  0%,100%{opacity:0.5;}
+  50%{opacity:1;}
+}
+
+.container{
+  width:100%;
+  padding:30px 20px 60px;
+}
+
+h1{
+  text-align:center;
+  margin-top:20px;
+  font-size:4rem;
+  font-family:'Great Vibes',cursive;
+
+  text-shadow:
+  0 0 10px rgba(255,255,255,0.7),
+  0 0 25px rgba(255,192,203,0.7);
+
+  animation:fadeUp 1.5s ease;
+}
+
+/* Message Box */
+#message{
+  width:90%;
+  max-width:720px;
+
+  margin:35px auto;
+
+  padding:30px;
+
+  line-height:2;
+
+  text-align:center;
+
+  border-radius:30px;
+
+  background:rgba(255,255,255,0.08);
+
+  border:1px solid rgba(255,255,255,0.12);
+
+  backdrop-filter:blur(20px);
+
+  box-shadow:
+  0 10px 40px rgba(0,0,0,0.3);
+
+  animation:fadeUp 2s ease;
+}
+
+#typing{
+  white-space:pre-line;
+}
+
+/* Slideshow */
+#slideshow{
+  width:90%;
+  max-width:360px;
+  height:520px;
+
+  margin:45px auto;
+
+  position:relative;
+
+  overflow:hidden;
+
+  border-radius:30px;
+
+  background:rgba(255,255,255,0.1);
+
+  border:1px solid rgba(255,255,255,0.15);
+
+  backdrop-filter:blur(15px);
+
+  box-shadow:
+  0 15px 45px rgba(255,105,180,0.3);
+
+  animation:fadeUp 2.3s ease;
+}
+
+/* Glow Effect */
+#slideshow::before{
+  content:'';
+
+  position:absolute;
+
+  inset:-20px;
+
+  background:
+  radial-gradient(circle,
+  rgba(255,105,180,0.35),
+  transparent 70%);
+
+  z-index:-1;
+
+  filter:blur(35px);
+}
+
+#slideshow img{
+  position:absolute;
+  inset:0;
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  opacity:0;
+
+  transition:
+  opacity 1.5s ease,
+  transform 8s ease;
+
+  transform:scale(1.1);
+}
+
+#slideshow img.active{
+  opacity:1;
+  transform:scale(1);
+}
+
+/* Controls */
+.controls{
+  text-align:center;
+}
+
+.btn{
+  padding:12px 24px;
+
+  margin:8px;
+
+  border:none;
+
+  border-radius:999px;
+
+  cursor:pointer;
+
+  color:white;
+
+  background:rgba(255,255,255,0.12);
+
+  border:1px solid rgba(255,255,255,0.15);
+
+  backdrop-filter:blur(10px);
+
+  transition:0.4s;
+}
+
+.btn:hover{
+  transform:
+  translateY(-3px)
+  scale(1.05);
+
+  box-shadow:
+  0 0 20px rgba(255,182,193,0.5);
+
+  background:rgba(255,255,255,0.2);
+}
+
+/* Signature */
+.signature{
+  text-align:center;
+
+  margin-top:25px;
+
+  font-size:1.1rem;
+
+  color:#ffd6e7;
+}
+
+/* Letter Section */
+.letter-box{
+  text-align:center;
+  margin-top:50px;
+}
+
+.letter-btn{
+  padding:14px 30px;
+
+  border:none;
+
+  border-radius:999px;
+
+  cursor:pointer;
+
+  color:white;
+
+  font-size:1rem;
+
+  background:rgba(255,255,255,0.12);
+
+  border:1px solid rgba(255,255,255,0.15);
+
+  backdrop-filter:blur(10px);
+
+  transition:0.4s;
+}
+
+.letter-btn:hover{
+  transform:scale(1.05);
+
+  box-shadow:
+  0 0 25px rgba(255,182,193,0.6);
+}
+
+#letter-content{
+  width:90%;
+
+  max-width:650px;
+
+  margin:25px auto 0;
+
+  padding:30px;
+
+  border-radius:30px;
+
+  line-height:2;
+
+  background:rgba(255,255,255,0.08);
+
+  border:1px solid rgba(255,255,255,0.12);
+
+  backdrop-filter:blur(20px);
+
+  display:none;
+
+  animation:fadeUp 1s ease;
+}
+
+/* Footer */
+footer{
+  text-align:center;
+
+  margin-top:45px;
+
+  margin-bottom:20px;
+
+  color:#ffe4ec;
+
+  font-style:italic;
+}
+
+/* Floating Particles */
+.floaty{
+  position:fixed;
+
+  bottom:-50px;
+
+  pointer-events:none;
+
+  animation:floatUp linear forwards;
+}
+
+@keyframes floatUp{
+  from{
+    transform:translateY(0) rotate(0deg);
+    opacity:0;
+  }
+
+  10%{
+    opacity:1;
+  }
+
+  to{
+    transform:
+    translateY(-120vh)
+    rotate(360deg);
+
+    opacity:0;
+  }
+}
+
+/* Fade Animation */
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Loading Screen -->
+<div id="loader">
+  <h2>Opening Special Memories ✨</h2>
+</div>
+
+<div class="container">
+
+<h1>Happy Birthday 🎂</h1>
+
+<!-- Message -->
+<div id="message">
+  <div id="typing"></div>
+</div>
+<div id="countdown"></div>
+
+<!-- Slideshow -->
+<div id="slideshow">
+  <img src="k1.jpg" class="active">
+  <img src="k2.jpg">
+  <img src="k3.jpg">
+  <img src="k4.jpg">
+  <img src="k5.jpg">
+  <img src="k6.jpg">
+</div>
+
+<!-- Buttons -->
+<div class="controls">
+  <button class="btn" id="prev">Previous</button>
+  <button class="btn" id="next">Next</button>
+  <button class="btn" id="toggleMusic">
+    Play Music ▶️
+  </button>
+</div>
+
+<!-- Signature -->
+<div class="signature">
+  With love, from <strong>先生。💖</strong>
+</div>
+
+<!-- Open Letter -->
+<div class="letter-box">
+
+  <button class="letter-btn" onclick="toggleLetter()">
+    Open Letter 💌
+  </button>
+
+  <div id="letter-content">
+
+    "မွေးနေ့မှာ ဆုတောင်းပေးလိုက်ပါတယ်။ အသက်ကြီးလာပြီဆိုတော့ ခါးနာတာတို့၊ ဒူးနာတာတို့ သတိထားဦးနော်။"
+    <br><br>
+
+   "အသက်တစ်နှစ်ကြီးသွားပြန်ပြီ။ ရုပ်ကတော့ ရင့်သွားပေမယ့် ဉာဏ်ရည်ကတော့ ကလေးဘဝအတိုင်းပဲနော်။ အမြဲတမ်း အူကြောင်ကြောင်လေး ဖြစ်နေပေးပါ။"
+    <br><br>
+
+    ဒီနေ့တော့ ရေချိုးပြီး သန့်သန့်ပြန့်ပြန့်လေး နေနော်၊ ထူးထူးခြားခြား မွေးနေ့မို့လို့။"
+    <br><br>
+
+    ဆုတောင်းတွေက အလကားရတာဆိုတော့ အများကြီး ပေးလိုက်မယ်။  ဘယ်တော့ မုန့်လိုက်ကျွေးမှာလဲပဲ ပြောတော့။
+
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer>
+  If only you knew how special you are to someone... ✨
+</footer>
+
+</div>
+
+<!-- Music -->
+<audio id="music" loop>
+  <source src="birthday.mp4" type="audio/mp4">
+</audio>
+
+<script>
+
+/* Loading */
+window.onload = () => {
+
+  setTimeout(() => {
+
+    document.getElementById('loader')
+    .style.opacity = '0';
+
+    setTimeout(() => {
+
+      document.getElementById('loader')
+      .style.display = 'none';
+
+    },1000);
+
+  },2200);
+};
+
+/* Typing Effect */
+const text = `Happy Birthday 🌙
+
+သမီး ခိုင်နှင်းသွယ်ရေ ✨
+ဒီနေ့က သမီး ခိုင်နှင်းသွယ်မွေးဖွားလာတဲ့နေ့ဆိုတာထက်၊
+ဒီကမ္ဘာကြီးထဲကို နူးညံ့လှပတဲ့အလင်းတန်းလေးတစ်ခု
+ရောက်ရှိလာတဲ့နေ့လို့ ဆရာထင်တယ်။
+လူတချို့က အရမ်းတောက်ပပြီး လူတွေအားလုံးရဲ့အာရုံကို ဖမ်းစားတတ်ကြတယ်။
+ဒါပေမယ့် လူတချို့ကတော့
+တိတ်တိတ်လေးနဲ့ပဲ လူတစ်ယောက်ရဲ့နှလုံးသားထဲမှာ
+အကြာကြီးကျန်နေတတ်ကြတယ်။
+သမီး ခိုင်နှင်းသွယ်က အဲ့ဒီလိုလူမျိုးပဲ။
+သမီး ရဲ့အပြုံးမှာ နွေးထွေးမှုရှိတယ်။
+သမီး ရဲ့အသံမှာ အေးချမ်းမှုရှိတယ်။
+သမီး ရှိနေတဲ့နေရာတစ်ခုက
+တစ်ခါတစ်လေ လူတစ်ယောက်အတွက်
+အိမ်လေးတစ်လုံးလိုတောင် ခံစားရတတ်တယ်။
+သမီး ခိုင်နှင်းသွယ်ကိုယ်တိုင်တော့ မသိနိုင်ဘူးထင်တယ်။
+ဒါပေမယ့် ခိုင်နှင်းသွယ်ဆိုတဲ့ကောင်မလေးက
+တခြားသူတွေရဲ့နေ့ရက်တွေကို
+တိတ်တိတ်လေး လှပစေတတ်တဲ့လူတစ်ယောက်ပါ။
+ဒီမွေးနေ့မှာ
+ဆရာက သမီး ပျော်ရွှင်ဖို့ပဲ မဆုတောင်းချင်ဘူး။
+သမီး ရဲ့နှလုံးသားလေး ပင်ပန်းမသွားဖို့၊
+သမီး ရဲ့အိပ်မက်တွေ အကောင်အထည်ပေါ်လာဖို့၊
+သမီး မျက်ရည်ကျရတဲ့နေ့တွေ နည်းသွားဖို့၊
+သမီး ကို တကယ်တန်ဖိုးထားတဲ့လူတွေ သမီး ဘေးမှာ ရှိနေဖို့
+ဆရာဆုတောင်းပေးချင်တယ်။
+ဘဝက တစ်ခါတလေ ခက်ခဲတတ်တယ်နော်။
+တချို့နေ့တွေမှာ
+အားလုံးအဆင်ပြေသလို ဟန်ဆောင်နေရပေမယ့်
+အတွင်းမှာတော့ တိတ်တိတ်လေး ပင်ပန်းနေတတ်တယ်။
+ဒါပေမယ့် ဘယ်လိုနေ့မျိုးပဲဖြစ်ဖြစ်
+သမီး ရဲ့နူးညံ့မှုကိုတော့ မပျောက်သွားပါစေနဲ့။
+သမီး ရဲ့ကြင်နာတတ်မှု၊
+သမီး ရဲ့အပြုံး၊
+သမီး ရဲ့နွေးထွေးမှုတွေက
+ဒီကမ္ဘာကြီးမှာ အရမ်းရှားတဲ့အရာတွေမို့လို့ပါ။
+တစ်နေ့နေ့မှာ
+သမီး ကိုယ်တိုင်ကို သံသယဝင်လာရင်တောင်
+ဒီစကားလေးကိုတော့ မှတ်ထားပေးနော် —
+ခိုင်နှင်းသွယ်ဆိုတဲ့ကောင်မလေးတစ်ယောက် ရှိနေခြင်းကပဲ
+လူတစ်ယောက်ရဲ့ကမ္ဘာကို
+ပိုလှပသွားစေဖူးတယ်ဆိုတာကို။
+ဒီညမှာတော့
+ဆရာက တိတ်တိတ်လေး ဆုတောင်းနေမယ်။
+သမီး ရဲ့နေ့ရက်တွေ ပိုနူးညံ့လာဖို့၊
+သမီး ရဲ့ညတွေ အေးချမ်းလာဖို့၊
+သမီး ရဲ့အိပ်မက်တွေ နီးလာဖို့၊
+ပြီးတော့ သမီး ခိုင်နှင်းသွယ်ရဲ့နှလုံးသားကို
+တကယ်နားလည်ပေးနိုင်တဲ့
+အချစ်မျိုးကို တွေ့ရဖို့ ✨
+မွေးနေ့မှစပြီး
+သမီး ခိုင်နှင်းသွယ်ဘဝထဲမှာ လှပတဲ့အရာတွေချည်းပဲ
+တဖြည်းဖြည်း ပိုများလာပါစေ 💖
+Happy Birthday 🎂
+
+
+`;
+
+let i = 0;
+const speed = 35;
+
+function typeWriter(){
+
+  if(i < text.length){
+
+    document.getElementById('typing')
+    .innerHTML += text.charAt(i);
+
+    i++;
+
+    setTimeout(typeWriter,speed);
+  }
+}
+
+setTimeout(typeWriter,2500);
+
+/* Slideshow */
+const slides =
+document.querySelectorAll('#slideshow img');
+
+let current = 0;
+
+function showSlide(index){
+
+  slides.forEach((img,i)=>{
+
+    img.classList.toggle(
+      'active',
+      i === index
+    );
+  });
+}
+
+document.getElementById('next')
+.onclick = () => {
+
+  current =
+  (current + 1) % slides.length;
+
+  showSlide(current);
+};
+
+document.getElementById('prev')
+.onclick = () => {
+
+  current =
+  (current - 1 + slides.length)
+  % slides.length;
+
+  showSlide(current);
+};
+
+/* Auto Slide */
+setInterval(() => {
+
+  current =
+  (current + 1) % slides.length;
+
+  showSlide(current);
+
+},5000);
+
+/* Floating Particles */
+function createFloaty(){
+
+  const el =
+  document.createElement('div');
+
+  el.classList.add('floaty');
+
+  const particles =
+  ['✨','💖','🌸','🫧'];
+
+  el.textContent =
+  particles[
+    Math.floor(
+      Math.random()*particles.length
+    )
+  ];
+
+  el.style.left =
+  Math.random() * window.innerWidth
+  + 'px';
+
+  el.style.fontSize =
+  (18 + Math.random()*18) + 'px';
+
+  el.style.animationDuration =
+  (6 + Math.random()*5) + 's';
+
+  document.body.appendChild(el);
+
+  setTimeout(()=>{
+    el.remove();
+  },12000);
+}
+
+setInterval(createFloaty,300);
+
+/* Music */
+const music =
+document.getElementById('music');
+
+const toggleBtn =
+document.getElementById('toggleMusic');
+
+let isPlaying = false;
+
+music.volume = 0.4;
+
+toggleBtn.onclick = () => {
+
+  if(!isPlaying){
+
+    music.play();
+
+    toggleBtn.textContent =
+    'Pause Music ⏸️';
+
+    isPlaying = true;
+
+  }else{
+
+    music.pause();
+
+    toggleBtn.textContent =
+    'Play Music ▶️';
+
+    isPlaying = false;
+  }
+};
+
+/* Open Letter */
+function toggleLetter(){
+
+  const letter =
+  document.getElementById(
+    'letter-content'
+  );
+
+  if(letter.style.display === 'block'){
+
+    letter.style.display = 'none';
+
+  }else{
+
+    letter.style.display = 'block';
+  }
+}
+
+</script>
+
+<!-- Confetti -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script>
+confetti({
+  particleCount:180,
+  spread:90,
+  origin:{ y:0.6 }
+});
+</script>
+
+</body>
+</html>
